@@ -15,7 +15,7 @@ class TestProjectsAPI:
     def test_create_project_negative(self, projects_api):
         """Негативный тест: попытка создать проект без имени."""
         response = projects_api.create_project("")
-        assert response.status_code == 400  
+        assert response.status_code == 400
 
     @pytest.mark.positive
     def test_get_project_positive(self, projects_api, created_project_id):
@@ -28,7 +28,7 @@ class TestProjectsAPI:
     def test_get_project_negative(self, projects_api):
         """Негативный тест: попытка получить несуществующий проект."""
         response = projects_api.get_project("invalid_id_123")
-        assert response.status_code == 404  
+        assert response.status_code == 404
 
     @pytest.mark.positive
     def test_update_project_positive(self, projects_api, created_project_id):
@@ -42,4 +42,4 @@ class TestProjectsAPI:
     def test_update_project_negative(self, projects_api):
         """Негативный тест: попытка обновить несуществующий проект."""
         response = projects_api.update_project("invalid_id_123", "New Name")
-        assert response.status_code == 404  
+        assert response.status_code == 404
